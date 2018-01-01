@@ -1,0 +1,44 @@
+{
+  "name": "port-ready",
+  "version": "0.0.0",
+  "description": "Promise to wait until a port is ready to accept connection.",
+  "scripts": {
+    "lint": "eslint --ext js,md .",
+    "test": "jest",
+    "precommit": "lint-staged",
+    "prepush": "jest"
+  },
+  "dependencies": {
+    "connect-port": "^0.0.1",
+    "p-timeout": "^2.0.1",
+    "p-wait-for": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.14.0",
+    "eslint-config-concise": "^0.16.4",
+    "eslint-config-concise-jest": "^0.16.4",
+    "get-port": "^3.2.0",
+    "husky": "^0.14.3",
+    "jest": "^22.0.4",
+    "lint-staged": "^6.0.0",
+    "npm-run-all": "^4.1.2",
+    "prettier-eslint-cli": "^4.7.0"
+  },
+  "repository": "ratson/port-ready",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6"
+  },
+  "files": [
+    "*.md",
+    "index.js"
+  ],
+  "keywords": [],
+  "lint-staged": {
+    "*.js": [
+      "prettier-eslint --write",
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}
