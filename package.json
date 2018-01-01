@@ -1,6 +1,6 @@
 {
   "name": "port-ready",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Promise to wait until a port is ready to accept connection.",
   "scripts": {
     "lint": "eslint --ext js,md .",
