@@ -6,18 +6,30 @@ const getPort = require('get-port')
 
 const portReady = require('.')
 
-test('wait for port ready', async () => {
+describe('port-ready', () => {
   jasmine.DEFAULT_TIMEOUT_INTERVAL = 30 * 1000
 
-  const port = await getPort()
-  const server = http.createServer((req, res) => {
-    res.end()
+  let server
+  let port
+  beforeAll(async () => {
+    port = await getPort()
+    server = http.createServer((req, res) => {
+      res.end()
+    })
+    server.listen(port)
   })
-  server.listen(port)
 
-  expect(await portReady({ port })).toBe(port)
+  afterAll(() => {
+    server.close()
+  })
 
-  server.close()
+  it('wait for port ready', async () => {
+    expect(await portReady({ port })).toBe(port)
+  })
+
+  it('accept port number as option', async () => {
+    expect(await portReady(port)).toBe(port)
+  })
 })
 
 test('throw when port is not defined', () => {

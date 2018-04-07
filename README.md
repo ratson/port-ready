@@ -10,7 +10,7 @@ npm install port-ready --save
 
 ## Usage
 
-<!-- eslint-disable strict -->
+<!-- eslint-disable strict,node/no-missing-require -->
 
 ```js
 const portReady = require('port-ready')
